@@ -14,17 +14,17 @@ function BuildNN(coords, m, brute = 0.0)
     mPtr = Cint[m];
     
     if brute == 1.0
-        ccall((:mkNNIndx, "julia-R-nn-ccall/nn.so"), Cvoid, (Ptr{Cint}, Ptr{Cint}, Ptr{Cdouble}, 
+        ccall((:mkNNIndx, "../../julia-R-nn-ccall/nn.so"), Cvoid, (Ptr{Cint}, Ptr{Cint}, Ptr{Cdouble}, 
             Ptr{Cint}, Ptr{Cdouble}, Ptr{Cint}), nPtr, mPtr, coords_fit, nnIndx, nnDist, nnIndxLU)
     else
-        ccall((:mkNNIndxTree0, "julia-R-nn-ccall/nn.so"), Cvoid, (Ptr{Cint}, Ptr{Cint}, Ptr{Cdouble}, 
+        ccall((:mkNNIndxTree0, "../../julia-R-nn-ccall/nn.so"), Cvoid, (Ptr{Cint}, Ptr{Cint}, Ptr{Cdouble}, 
             Ptr{Cint}, Ptr{Cdouble}, Ptr{Cint}), nPtr, mPtr, coords_fit, nnIndx, nnDist, nnIndxLU)
     end
     
     nnIndx = nnIndx .+ 1 
-    nnIndxLU = nnIndxLU[2:(n + 1)]  .+ 1
-    nnIndxLU[n] = nIndx + 1
-    return (nnIndx = nnIndx, nnDist = nnDist, nnIndxLU = nnIndxLU)
+    nnIndxLU = nnIndxLU[1:(n + 1)]  .+ 1
+    nnIndxLU[n + 1] = nIndx + 1
+    return (nnIndx = nnIndx, nnDist = nnDist, nnIndxLU = nnIndxLU[1:(n + 1)])
 end  
 
 function getAD(coords, nnIndx, nnDist, nnIndxLU, ϕ, ν, A, D)
@@ -38,17 +38,74 @@ function getAD(coords, nnIndx, nnDist, nnIndxLU, ϕ, ν, A, D)
     # initialize memory
     NNdistM = []
     NNdistv = []
-    n = size(coords)[2]
-    for i in 2:n
+    n = length(nnIndxLU) - 1;
+    if nnIndxLU[1] == nnIndxLU[2]
+        D[1] = 1.0
+        l = 2
+    else 
+        l = 1
+    end
+    for i in l:n
         if ν == 0.5
             NNdistM = cholesky(exp.(-ϕ .* pairwise(Euclidean(), 
-                        coords[:, nnIndx[nnIndxLU[i - 1]:(nnIndxLU[i] - 1)]], 
+                        coords[:, nnIndx[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)]], 
                         dims = 2)))
-            NNdistv = NNdistM.L \ (exp.(-ϕ .* nnDist[nnIndxLU[i - 1]:(nnIndxLU[i] - 1)]))
+            NNdistv = NNdistM.L \ (exp.(-ϕ .* nnDist[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)]))
             D[i] = 1.0 - NNdistv⋅NNdistv
-            A[nnIndxLU[i - 1]:(nnIndxLU[i] - 1)] = NNdistM.U \ NNdistv
+            A[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)] = NNdistM.U \ NNdistv
         end
     end
-    D[1] = 1.0;
     # return (A = A, D = D)
 end
+
+function getAD_collapse(coords, nnIndx, nnDist, nnIndxLU, ϕ, ν, α, A, D)
+    # coords: 2 by n array,
+    # nnIndx, nnDist, nnIndxLU output of the mkNNIndx function
+    # ϕ, ν, α: covariance parameter set
+    # hold: whether AD is for holded locations or not
+    
+    # return: A D
+    # A = []
+    # D = ones(size(coords)[2])
+    
+    # initialize memory
+    NNdistM = []
+    NNdistv = []
+    n = length(nnIndxLU) - 1;
+    if nnIndxLU[1] == nnIndxLU[2]
+        D[1] = 1.0 / α
+        l = 2
+    else 
+        l = 1
+    end
+    for i in l:n
+        if ν == 0.5
+            NNdistM = cholesky(exp.(-ϕ .* pairwise(Euclidean(), 
+                        coords[:, nnIndx[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)]], 
+                        dims = 2)) + (1.0 / α - 1.0) * I)
+            NNdistv = NNdistM.L \ (exp.(-ϕ .* nnDist[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)]))
+            D[i] = 1.0 / α - NNdistv⋅NNdistv
+            A[nnIndxLU[i]:(nnIndxLU[i + 1] - 1)] = NNdistM.U \ NNdistv
+        end
+    end
+    
+    # return (A = A, D = D)
+end
+
+function kfoldperm(N,k)
+
+    # k folder split of 1:N
+    
+    n,r = divrem(N,k)
+    b = collect(1:n:N+1)
+    for i in 1:length(b)
+        b[i] += i > r ? r : i-1  
+    end
+    p = randperm(N)
+    return [p[r] for r in [b[i]:b[i+1]-1 for i=1:k]]
+end
+
+colnorm(A) = [norm(A[:,i], 2) for i=1:size(A,2)]
+
+
+

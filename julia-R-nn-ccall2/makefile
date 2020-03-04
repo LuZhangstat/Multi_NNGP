@@ -4,7 +4,7 @@ all:
 	g++ -shared -o nn.so nn.o
 	mkdir -p ../sim/pics
 	mkdir -p ../sim/sim4/results
-	mkdir -p ../sim/sim+Factor/results/K3-lowK
+	mkdir -p ../sim/sim_Factor/results/K3-lowK
 	mkdir -p ../RDA/pics
 	mkdir -p ../RDA/data/conj_data
 	mkdir -p ../RDA/data/LMC_data

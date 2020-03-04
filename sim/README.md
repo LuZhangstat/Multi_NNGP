@@ -11,7 +11,6 @@ Roadmap
 Instructions
 ---------
 * One need to compile the library in folder "../julia-R-nn-ccall2" before runing codes in this folder
-* Open in terminal, type "mkdir pics", "mkdir sim4/results", "mkdir sim_Factor/results" & "mkdir sim_Factor/results/K3-lowK" to creat required folders.
 * In each folder, first generate data in folder "data" then run projects in folder "projects"
 
 

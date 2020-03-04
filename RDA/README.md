@@ -28,8 +28,7 @@ Structure
 Notes
 ---------
 * We use "*" as a shorthand of file name in the above table 
-* One need to compile the library in folder "./julia-R-nn-ccall2" before runing projects in this folder
-
-
+* One need to compile the library in folder "../julia-R-nn-ccall2" before runing codes in this folder
+* One need to creat folders for data, results and pictures based on the code.
 
 

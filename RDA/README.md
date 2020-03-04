@@ -15,8 +15,8 @@ Structure
 |        |      | Multi_conj_resp_real_summary.ipynb | Summary for multivariate Conjugate response model |
 |        |***misalign_response***|Conj_res_misalign_data.ipynb | Precalculation for conjugate response model with misalignment|
 |        |      |Bayesian_linear_real_small.ipynb | Bayesian linear model for subset of whole data|
-|        |      | Multi_conj_resp_misalign_real.ipynb | Multivariate conjugate response model with misalignment |
-|        |      | Multi_conj_resp_misalign_summary.ipynb | Summary for multivariate conjugate response model with misalignment |
+|        |      | Multi_*_real.ipynb | Multivariate conjugate response model with misalignment |
+|        |      | Multi_*_summary.ipynb | Summary for multivariate conjugate response model with misalignment |
 |        |***BSLMC***| data_BSLMC.ipynb | Precalculation for BSLMC|
 |        |      | BSLMC_forloop*.ipynb | BSLMC model |
 |        |      | BSLMC_summary*.ipynb | Summary for BSLMC model |

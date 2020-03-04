@@ -10,7 +10,7 @@ Roadmap
 
 Instructions
 ---------
-* One need to compile the library in folder "./julia-R-nn-ccall2" before runing codes in this folder
+* One need to compile the library in folder "../julia-R-nn-ccall2" before runing codes in this folder
 * Open in terminal, type "mkdir pics" & "mkdir results" to creat folder "pics" and "results".
 * In each folder, first generate data in folder "data" then run projects in folder "projects"
 

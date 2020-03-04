@@ -1,45 +1,33 @@
 
 
 
-Roadmap
----------
-|Folder Name |Subfolder Name |     Intro            |
-|:------ |:------ |:----------- |
-|data|       | download data and exploratory data analysis|
-|    |rawdata| run "readdata.R" to download rawdata|
-|    |EDA| run "EDA.R" to do exploratory data analysis|
-|projects|       |                                    |
-|    | Conj | |
-|    | BSLMC | |
-|    | misalign_response | |
-|    | Factor_BSLMC | |
-
-
-
 Structure
-------------------
-+-- data<br />
-|   &nbsp;&nbsp;       +-- (step 1)rawdata: run "readdata.R" to download rawdata <br />
-|   &nbsp;&nbsp;       +-- (step 2)EDA: run "EDA.R" to do exploratory data analysis <br />
-|    &nbsp; &nbsp;  &nbsp;   &nbsp;         
-|<br />
-+-- projects: R code files for full GP, response NNGP and latent NNGP.<br />
-|   &nbsp;&nbsp;       +-- Conj: run "readdata.R" to download rawdata <br />
-|   &nbsp;&nbsp; &nbsp;&nbsp; +-- (step1)
-|   &nbsp;&nbsp;       +-- BSLMC: run "EDA.R" to do exploartory data analysis <br />
-|   &nbsp;&nbsp;       +-- misalign_response: run "readdata.R" to download rawdata <br />
-|   &nbsp;&nbsp;       +-- Factor_BSLMC: run "EDA.R" to do exploartory data analysis <br />
-|<br />
-
-## data
-* (step 1)rawdata: run "readdata.R" to download rawdata
-* (step 2)EDA: run "EDA.R" to do exploratory data analysis
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+---------
+|Folder Name |Subfolder Name | File Name|     Intro            |
+|:------ |:------ |:------ |:----------- |
+|***data***|rawdata| readdata.R | download rawdata|
+|    |EDA| EDA.R | exploratory data analysis|                               |
+|***projects***| Conj | data_conj.ipynb | Precalculation for conjugate models|
+|        |      | Bayesian_linear_real.ipynb | Bayesian linear model |
+|        |      | Multi_conj_latent_real_parallel.ipynb | Multivariate conjugate latent model |
+|        |      | Multi_conj_latent_real_summary.ipynb | Summary for multivariate conjugate latent model |
+|        |      | Multi_conj_resp_real_parallel.ipynb | Multivariate conjugate response model |
+|        |      | Multi_conj_resp_real_summary.ipynb | Summary for multivariate Conjugate response model |
+|        | misalign_response |Conj_res_misalign_data.ipynb | Precalculation for conjugate response model with misalignment|
+|        |      |Bayesian_linear_real_small.ipynb | Bayesian linear model for subset of whole data|
+|        |      | Multi_conj_resp_misalign_real.ipynb | Multivariate conjugate response model with misalignment |
+|        |      | Multi_conj_resp_misalign_summary.ipynb | Summary for multivariate conjugate response model with misalignment |
+|        | BSLMC | data_BSLMC.ipynb | Precalculation for BSLMC|
+|        |      | BSLMC_forloop*.ipynb | BSLMC model |
+|        |      | BSLMC_summary*.ipynb | Summary for BSLMC model |
+|        | Factor_BSLMC |data_Factor_BSLMC.ipynb | Precalculation for factor BSLMC|
+|        |      | BSLMC_Factor_real-RAM*.ipynb | factor BSLMC model with diagonal Sigma |
+|        |      | BSLMC_Factor_real-summary*.ipynb | Summary for factor BSLMC model with diagonal Sigma |
 
 
 Notes
 ---------
-* One need to compile the library in folder "./julia-R-nn-ccall2" before runing codes in this folder
+* One need to compile the library in folder "./julia-R-nn-ccall2" before runing projects in this folder
 
 
 

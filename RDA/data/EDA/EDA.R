@@ -24,7 +24,8 @@ set.seed(123)
 subind <- sample.int(N, round(N*0.01))
 d.max <- sqrt((max(data_cleaned$scaled_x) - min(data_cleaned$scaled_x))^2 + 
                 (max(data_cleaned$scaled_y) - min(data_cleaned$scaled_y))^2)
-d.max # around 17,000 KM
+d.max # around 1572 KM
+
 
 # check NDVI variogram
 hist(data_cleaned[, c("NDVI")])
@@ -55,6 +56,9 @@ v.NDVI2.fit = fit.variogram(v.NDVI2, vgm("Exp"));v.NDVI2.fit
 #1   Nug 0.006001477 0.0000000
 #2   Exp 0.018345890 0.2219178 # phi = 4.7
 plot(v.NDVI2) 
+range(data_cleaned[-outliner.NDVI, c("NDVI")])
+sqrt(var(data_cleaned[-outliner.NDVI, c("NDVI")]))
+#-0.0098  0.9476
 
 v.NDVI3 <- variogram( NDVI~Non_Vegetated_or_Builtup_Lands, data.NDVI) # 30
 v.NDVI3.fit = fit.variogram(v.NDVI3, vgm("Exp"));v.NDVI3.fit # 1.54
@@ -365,6 +369,47 @@ colnames(data_cleaned2)[1:21] <-
 
 tt2 = lm(NDVI~Non_Vegetated_or_Builtup_Lands, data = data_cleaned)
 summary(tt2)
+
+tt3 = lm(lGPP~red_reflectance, data = data_cleaned2)
+summary(tt3)
+
+tt4 = lm(lET~red_reflectance, data = data_cleaned2)
+summary(tt4)
+
+
+# check PLE variogram
+par(mfrow=c(1,1))
+N = dim(data_cleaned2)[1]
+set.seed(123)
+subind <- sample.int(N, round(N*0.01))
+data.lGPP  = data_cleaned2[subind, c("scaled_x", "scaled_y", "lNDVI", "NDVI",
+                                     "red_reflectance", "NIR_reflectance",
+                                   "Non_Vegetated_or_Builtup_Lands", "lGPP")]
+coordinates(data.lGPP) = ~scaled_x+scaled_y
+v.lGPP <- variogram( lGPP~scaled_x+scaled_y+red_reflectance+NIR_reflectance, 
+                     data.lGPP) # 4.00668
+v.lGPP.fit = fit.variogram(v.lGPP, vgm("Exp")); 1 / v.lGPP.fit$range[2]
+v.lGPP.fit
+#model      psill     range
+#1   Nug 0.04558131 0.0000000
+#2   Exp 0.05972745 0.2221582
+plot(v.lGPP) # phi 4.501298
+
+data.lET  = data_cleaned2[subind, c("scaled_x", "scaled_y", "lNDVI", "NDVI",
+                                    "red_reflectance", "NIR_reflectance",
+                                     "Non_Vegetated_or_Builtup_Lands", "lET",
+                                    "ET")]
+coordinates(data.lET) = ~scaled_x+scaled_y
+v.lET <- variogram( lET~scaled_x+scaled_y+red_reflectance+NIR_reflectance, 
+                    data.lET) # 4.318681
+v.lET.fit = fit.variogram(v.lET, vgm("Exp"), fit.sills = TRUE, 
+                          fit.ranges = TRUE); 1 / v.lET.fit $range[2]
+v.lET.fit
+#model     psill     range
+#1   Nug 0.0365742 0.0000000
+#2   Exp 0.1051269 0.2616677
+plot(v.lET) # phi 3.821641
+
 
 
 load("hold_index_expanded.RData")

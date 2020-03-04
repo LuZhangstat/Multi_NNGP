@@ -24,4 +24,4 @@ Licensing
 
 Notes
 ---------
-* You are welcomed to contact me for bug reporting.
+* You are welcome to contact me for bug reporting.

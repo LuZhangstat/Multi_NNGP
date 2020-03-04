@@ -3,12 +3,17 @@
 
 Roadmap
 ---------
-|Folder Name |     Intro            |
-|:------ |:----------- |
-|data| old simulations, not presented in paper|
-| | * (step 1)rawdata: run "readdata.R" to download rawdata|
-|sim4| simulation example 1 |
-|sim_Factor| simulation example 2 |
+|Folder Name |Subfolder Name |     Intro            |
+|:------ |:------ |:----------- |
+|data|       | download data and exploratory data analysis|
+|    |rawdata| run "readdata.R" to download rawdata|
+|    |EDA| run "EDA.R" to do exploratory data analysis|
+|projects|       |                                    |
+|    | Conj | |
+|    | BSLMC | |
+|    | misalign_response | |
+|    | Factor_BSLMC | |
+
 
 
 Structure

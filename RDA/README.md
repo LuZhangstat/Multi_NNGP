@@ -20,13 +20,14 @@ Structure
 |        |***BSLMC***| data_BSLMC.ipynb | Precalculation for BSLMC|
 |        |      | BSLMC_forloop*.ipynb | BSLMC model |
 |        |      | BSLMC_summary*.ipynb | Summary for BSLMC model |
-|        |***Factor_BSLMC***|data_Factor_BSLMC.ipynb | Precalculation for factor BSLMC|
+|        |***Factor_BSLMC***|data_Factor_BSLMC.ipynb | Precalculation for factor BSLMC with diagonal Sigma|
 |        |      | BSLMC_Factor_real-RAM*.ipynb | factor BSLMC model with diagonal Sigma |
 |        |      | BSLMC_Factor_real-summary*.ipynb | Summary for factor BSLMC model with diagonal Sigma |
 
 
 Notes
 ---------
+* We use "*" as a shorthand of file name in the above table 
 * One need to compile the library in folder "./julia-R-nn-ccall2" before runing projects in this folder
 
 

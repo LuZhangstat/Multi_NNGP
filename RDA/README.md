@@ -5,7 +5,8 @@ Roadmap
 ---------
 |Folder Name |     Intro            |
 |:------ |:----------- |
-|sim1-3| old simulations, not presented in paper|
+|data| old simulations, not presented in paper|
+| | * (step 1)rawdata: run "readdata.R" to download rawdata|
 |sim4| simulation example 1 |
 |sim_Factor| simulation example 2 |
 
@@ -24,6 +25,11 @@ Structure
 |   &nbsp;&nbsp;       +-- misalign_response: run "readdata.R" to download rawdata <br />
 |   &nbsp;&nbsp;       +-- Factor_BSLMC: run "EDA.R" to do exploartory data analysis <br />
 |<br />
+
+## data
+* (step 1)rawdata: run "readdata.R" to download rawdata
+* (step 2)EDA: run "EDA.R" to do exploratory data analysis
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 
 Notes

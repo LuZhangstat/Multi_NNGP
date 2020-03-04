@@ -6,9 +6,9 @@ Roadmap
 ---------
 |Folder Name |     Intro            |
 |:------ |:----------- |
-|julia-R-nn-ccall2| library for building nearest neighbors|
-|sim| simulation studies in section 4|
-|RDA| Real data Analysis |
+|julia-R-nn-ccall2| Library for Building Nearest Neighbors|
+|sim| Simulation Studies |
+|RDA| Real Data Analysis |
 
 
 Authors

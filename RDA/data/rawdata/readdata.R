@@ -12,7 +12,7 @@ library("data.table")
 rm(list = ls())
 library("MODIS")
 library("rgdal")
-#EarthdataLogin(usr = "LuZhangstat", pwd = "Lu2h@ng2816")
+#EarthdataLogin(usr = "****", pwd = "****")
 
 ############################
 # download data from MODIS #

@@ -1,6 +1,6 @@
 # Multi_NNGP
 
-This repository contains the code files of the analyses in "High-dimensional multivariate Geostatistics: A Bayesian Matrix-Normal Approach"
+This repository contains the code files of the analyses in "Spatial Factor Modeling: A Bayesian Matrix-Normal Approach for Misaligned data"
 
 Roadmap
 ---------

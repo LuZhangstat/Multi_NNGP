@@ -4,9 +4,9 @@ Roadmap
 ---------
 |Folder Name |     Intro            |
 |:------ |:----------- |
-|sim1,3,4| old simulations, not presented in paper|
+|sim1,4,factor| old simulations, not presented in paper|
 |sim2| simulation example 1 |
-|sim_Factor| simulation example 2 |
+|sim3| simulation example 2 |
 
 Instructions
 ---------

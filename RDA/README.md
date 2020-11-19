@@ -7,13 +7,13 @@ Structure
 |:----- |:----- |:----- |:-------------- |
 |**data**|***rawdata***| readdata.R | download rawdata|
 |    |***EDA***| EDA.R | exploratory data analysis|                               |
-|**projects**|***Conj***| data_conj.ipynb | Precalculation for conjugate models|
+|**projects**|***Conj*** (no long presented in the paper)| data_conj.ipynb | Precalculation for conjugate models|
 |        |      | Bayesian_linear_real.ipynb | Bayesian linear model |
 |        |      | Multi_conj_latent_real_parallel.ipynb | Multivariate conjugate latent model |
 |        |      | Multi_conj_latent_real_summary.ipynb | Summary for multivariate conjugate latent model |
 |        |      | Multi_conj_resp_real_parallel.ipynb | Multivariate conjugate response model |
 |        |      | Multi_conj_resp_real_summary.ipynb | Summary for multivariate conjugate response model |
-|        |***misalign_response***|Conj_res_misalign_data.ipynb | Precalculation for conjugate response model with misalignment|
+|        |***misalign_response*** (no long presented in the paper)|Conj_res_misalign_data.ipynb | Precalculation for conjugate response model with misalignment|
 |        |      |Bayesian_linear_real_small.ipynb | Bayesian linear model for subset of whole data|
 |        |      | *misalign_real.ipynb | Multivariate conjugate response model with misalignment |
 |        |      | *misalign_summary.ipynb | Summary for onjugate response model with misalignment |

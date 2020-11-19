@@ -17,12 +17,12 @@ Structure
 |        |      |Bayesian_linear_real_small.ipynb | Bayesian linear model for subset of whole data|
 |        |      | *misalign_real.ipynb | Multivariate conjugate response model with misalignment |
 |        |      | *misalign_summary.ipynb | Summary for onjugate response model with misalignment |
-|        |***BSLMC***| data_BSLMC.ipynb | Precalculation for BSLMC|
-|        |      | BSLMC_forloop*.ipynb | BSLMC model |
-|        |      | BSLMC_summary*.ipynb | Summary for BSLMC model |
-|        |***Factor_BSLMC***|data_Factor_BSLMC.ipynb | Precalculation for factor BSLMC with diagonal Sigma|
-|        |      | BSLMC_Factor_real-RAM*.ipynb | factor BSLMC model with diagonal Sigma |
-|        |      | BSLMC_Factor_real-summary*.ipynb | Summary for factor BSLMC model with diagonal Sigma |
+|        |***BLMC***| data_BSLMC.ipynb | Precalculation for BSLMC|
+|        |      | BSLMC_forloop*.ipynb | BLMC model |
+|        |      | BSLMC_summary*.ipynb | Summary for BLMC model |
+|        |***Factor_BLMC***|data_Factor_BSLMC.ipynb | Precalculation for BLMC with diagonal Sigma|
+|        |      | BSLMC_Factor_real-RAM*.ipynb | BLMC model with diagonal Sigma |
+|        |      | BSLMC_Factor_real-summary*.ipynb | Summary for BLMC model with diagonal Sigma |
 
 
 Notes

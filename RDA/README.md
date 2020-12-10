@@ -20,6 +20,7 @@ Structure
 |        |***BLMC***| data_BSLMC.ipynb | Precalculation for BSLMC|
 |        |      | BSLMC_forloop*.ipynb | BLMC model |
 |        |      | BSLMC_summary*.ipynb | Summary for BLMC model |
+|        |      | linear_forloop.ipynb | Bayesian linear model in Section 5|
 |        |***Factor_BLMC***|data_Factor_BSLMC.ipynb | Precalculation for BLMC with diagonal Sigma|
 |        |      | BSLMC_Factor_real-RAM*.ipynb | BLMC model with diagonal Sigma |
 |        |      | BSLMC_Factor_real-summary*.ipynb | Summary for BLMC model with diagonal Sigma |

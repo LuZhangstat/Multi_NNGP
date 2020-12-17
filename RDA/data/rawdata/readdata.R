@@ -1,14 +1,7 @@
 #
-setwd("/home/lu/Documents/Github/Multi_NNGP/RDA/data/rawdata")
-#MyData <- read.csv(file="GFB_Abm_ba_USA_10192017.csv", header=TRUE, sep=",")
+setwd("./RDA/data/rawdata")
 #install.packages("data.table")
 library("data.table")
-#t <- proc.time()
-#data <- fread('GFB_Abm_ba_USA_10192017.csv', header = T)
-#proc.time() - t
-#summary(data$Ps)
-#summary(data$Yr)
-#summary(data$B)
 rm(list = ls())
 library("MODIS")
 library("rgdal")
@@ -53,12 +46,6 @@ GPPdata<- getHdf(product = "MOD17A2H", begin = "2016100", end = "2016120",
 proc.time() - t
 GPPdata
 
-# atomesphere ??
-# t <- proc.time() 
-# vaperozone<- getHdf(product = "MYD08_M3", begin = "2018304", end = "2018337",
-#                  extent = "california")
-# proc.time() - t
-# vaperozone
 
 t <- proc.time() 
 Net_Evapo<- getHdf(product = "MOD16A2", begin = "2016100", end = "2016120",
@@ -66,7 +53,6 @@ Net_Evapo<- getHdf(product = "MOD16A2", begin = "2016100", end = "2016120",
 proc.time() - t
 Net_Evapo
 
-# also check 1km by 1km 
 # MOD14A2 - MODIS/Terra Thermal Anomalies/Fire 8-Day L3 Global 1km SIN Grid
 # MOD44B - MODIS/Terra Vegetation Continuous Fields Yearly L3 Global 500m SIN Grid
 # MOD11A2 - MODIS/Terra Land Surface Temperature/Emissivity 8-Day L3 Global 1km SIN Grid
@@ -107,7 +93,7 @@ duration <- BA1Ldate@data -BA1Fdate@data
 summary(duration)
 sum(duration > 0.00 & !is.na(duration))
 
-# good!
+
 landcover1 <- get_subdatasets('MCD12Q1.006/2016.01.01/MCD12Q1.A2016001.h08v05.006.2018055070314.hdf')
 landcover1
 LC_Type1<- readGDAL(landcover1[1])

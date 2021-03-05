@@ -1,6 +1,6 @@
 ## Dataset: Remote-sensed Vegetation data #
 
-**cleaned_data2_expanded.zip** is the data of the analyses in Section 5 of paper "Spatial Factor Modeling: A Bayesian Matrix-Normal Approach for Misaligned data". The dataset combines data from 
+**data_cleaned_small_expanded.RData** is the data of the analyses in Section 5 of paper "Spatial Factor Modeling: A Bayesian Matrix-Normal Approach for Misaligned data". The dataset combines data from 
 
 Friedl, M., D. Sulla-Menashe.  <i>MCD12Q1 MODIS/Terra+Aqua Land Cover Type Yearly L3 Global 500m SIN Grid V006</i>. 2019, distributed by NASA EOSDIS Land Processes DAAC, https://doi.org/10.5067/MODIS/MCD12Q1.006. 
 
